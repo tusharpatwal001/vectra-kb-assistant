@@ -36,7 +36,7 @@ def build_chain():
         search_type="similarity_score_threshold",
         search_kwargs={"k": 4, "score_threshold": 0.35},
     )
-    llm = ChatOpenAI(model=os.environ.get("OPENAI_CHAT_MODEL", "gpt-5-nano"), temperature=0)
+    llm = ChatOpenAI(model=os.environ.get("OPENAI_CHAT_MODEL", "gpt-5.4-mini"), temperature=0)
     structured_llm = llm.with_structured_output(KBAnswer)
 
     def retrieve_and_answer(inputs: dict) -> KBAnswer:
